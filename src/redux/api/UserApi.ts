@@ -11,7 +11,7 @@ import axios from "axios";
 const userApi = createApi({
   reducerPath: "userApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: `${import.meta.env.VITE_SERVER}/api/v1/user/`,
+    baseUrl: `${import.meta.env.VITE_SERVER}api/v1/user/`,
   }),
   tagTypes: ["users"],
   endpoints: (builder) => ({
@@ -40,7 +40,7 @@ const userApi = createApi({
 const getUser = async (id: string) => {
   try {
     const { data }: { data: UserResponse } = await axios.get(
-      `${import.meta.env.VITE_SERVER}/api/v1/user/${id}`
+      `${import.meta.env.VITE_SERVER}api/v1/user/${id}`
     );
     return data;
   } catch (error) {
