@@ -51,7 +51,14 @@ function App() {
       try {
         if (user) {
           const data = await getUser(user.uid);
-          dispatch(userExists(data!.user));
+          console.log("Fetched user data: ", data); // Log the fetched data
+          if (data && data.user) {
+            // Check if data and data.user are defined
+            dispatch(userExists(data.user));
+          } else {
+            console.error("User data is undefined");
+            // handle error appropriately
+          }
         } else {
           dispatch(userNotExists());
         }
