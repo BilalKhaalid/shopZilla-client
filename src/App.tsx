@@ -50,9 +50,7 @@ function App() {
     onAuthStateChanged(auth, async (user) => {
       try {
         if (user) {
-          const data = await getUser(
-            `https://shopzilla-tkhv.onrender.com/api/v1/user/${user.uid}`
-          );
+          const data = await getUser(user.uid);
 
           console.log("Fetched user data: ", data); // Log the fetched data
           if (data && data.user) {
