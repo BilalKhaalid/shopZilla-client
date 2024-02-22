@@ -1,0 +1,111 @@
+.cart {
+  @include flex(row, center, flex-start, 4rem);
+  padding: 2rem 4rem;
+  height: calc(100vh - 4rem);
+
+  > main {
+    width: 70%;
+    > h1 {
+      @include heading(2px);
+      text-align: center;
+    }
+    overflow-y: auto;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  > aside {
+    width: 30%;
+    padding: 5rem;
+    @include flex(column, center, stretch, 0.85rem);
+
+    > input {
+      padding: 1rem;
+      border: 1px solid rgba(0, 0, 0, 0.28);
+      outline: none;
+      border-radius: 5px;
+      margin-top: 2rem;
+    }
+    > p {
+      font-size: 1.1rem;
+    }
+    > a {
+      background-color: $color3;
+      padding: 1rem;
+      text-decoration: none;
+      color: $color1;
+      @include flex;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      border-radius: 5px;
+
+      &:hover {
+        opacity: 0.9;
+      }
+    }
+
+    > span {
+      margin-top: -0.68rem;
+      @include flex(row, center, center, 5px);
+      > code {
+        font-weight: bold;
+        font-size: 0.8rem;
+        align-self: flex-end;
+      }
+    }
+  }
+}
+
+.cart-item {
+  padding: 2.75rem;
+  @include flex(row, stretch, space-evenly, 3rem);
+  > img {
+    border: 1px solid black;
+    @include square(10rem);
+    object-fit: contain;
+    border-radius: 15px;
+  }
+
+  > article {
+    @include flex(column, center, center, 0.25rem);
+    a {
+      font-size: 1.2rem;
+      color: $color2;
+      &:hover {
+        color: $color3;
+      }
+    }
+    span {
+      font-weight: 700;
+      align-self: start;
+    }
+  }
+
+  > div {
+    margin-left: auto;
+    @include flex();
+    button {
+      font-size: 1.2rem;
+      @include square(2rem);
+      border: none;
+      border-radius: 7.5px;
+      @include flex;
+      cursor: pointer;
+      &:hover {
+        background-color: $color2;
+        color: $color1;
+      }
+    }
+  }
+  > button {
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+    @include flex;
+    font-size: 1.4rem;
+    &:hover {
+      color: rgb(206, 0, 0);
+    }
+  }
+}

@@ -1,0 +1,49 @@
+.login {
+  height: 90vh;
+  @include flex(column);
+
+  > main {
+    width: 80%;
+    height: 80%;
+    max-width: 400px;
+    padding: 2rem;
+    @include baseShadow;
+    border-radius: 12px;
+    @include flex(column, center, stretch);
+
+    > div {
+      width: 100%;
+      @include flex(column, flex-start, stretch, 0.2rem);
+      > input,
+      select {
+        @include inputStyle;
+        border: 1px solid rgba(162, 162, 162, 0.52);
+        border-radius: 7px;
+      }
+      > p {
+        text-align: center;
+        margin: 2rem;
+      }
+      > button {
+        width: 70%;
+        margin: auto;
+        height: 3rem;
+        @include button(unset, 5px, rgb(62, 125, 142), whitesmoke);
+        @include flex;
+        border: 1px solid rgb(62, 125, 142);
+        font-size: 1.02rem;
+      }
+      svg {
+        background-color: white;
+        width: 33%;
+        height: 100%;
+        border-radius: 5px;
+      }
+
+      > span {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  }
+}
