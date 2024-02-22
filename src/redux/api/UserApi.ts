@@ -11,7 +11,7 @@ import axios from "axios";
 const userApi = createApi({
   reducerPath: "userApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: `${import.meta.env.VITE_SERVER}/api/v1/user/`,
+    baseUrl: `${import.meta.env.VITE_SERVER}api/v1/user/`,
   }),
   tagTypes: ["users"],
   endpoints: (builder) => ({
