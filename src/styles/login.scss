@@ -6,12 +6,12 @@
     width: 90%;
     height: 85%;
     max-width: 31vw; /* Use vw instead of px */
-    padding: 2rem;
+    padding: 2.6rem;
     @include baseShadow;
     border-radius: 12px;
     @include flex(column, center, stretch);
     position: absolute;
-    top: 5.5rem;
+    top: 4.5rem;
 
     > div {
       width: 100%;
@@ -24,10 +24,10 @@
       }
       > p {
         text-align: center;
-        margin: 2rem;
+        margin: 1rem;
       }
       > button {
-        width: 60%;
+        width: 65%;
         margin: auto;
         height: 3rem;
         @include button(unset, 5px, rgb(62, 125, 142), whitesmoke);
@@ -37,13 +37,12 @@
       }
       svg {
         background-color: white;
-        width: 33%;
+        width: 30%;
         height: 100%;
         border-radius: 5px;
       }
 
       > span {
-        width: 100%;
         text-align: center;
       }
     }
