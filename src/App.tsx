@@ -70,7 +70,7 @@ function App() {
     <Loader />
   ) : (
     <Router>
-      <Header user={user} />
+      <Header key={user?._id} user={user} />
       <Suspense fallback={<Loader />}>
         <Routes>
           <Route path="/" element={<Home />} />
