@@ -1,17 +1,17 @@
 .login {
-  height: 85vh;
+  height: 100vh;
   @include flex(column);
 
   > main {
     width: 90%;
-    height: 75%;
+    height: 85%;
     max-width: 31vw; /* Use vw instead of px */
     padding: 2rem;
     @include baseShadow;
     border-radius: 12px;
     @include flex(column, center, stretch);
     position: absolute;
-    top: 6.8rem;
+    top: 5.5rem;
 
     > div {
       width: 100%;
