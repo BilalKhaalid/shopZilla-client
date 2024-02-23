@@ -51,20 +51,17 @@ function App() {
       try {
         if (user) {
           const data = await getUser(user.uid);
-
-          // console.log("Fetched user data: ", data); // Log the fetched data
           if (data && data.user) {
-            // Check if data and data.user are defined
             dispatch(userExists(data.user));
           } else {
-            // console.error("User data is undefined");
-            // handle error appropriately
             dispatch(userNotExists());
           }
+        } else {
+          dispatch(userNotExists());
         }
       } catch (error) {
         console.error("Failed to fetch user data: ", error);
-        // handle error appropriately
+        dispatch(userNotExists()); // Update the state even when there's an error
       }
     });
   }, [dispatch]);
