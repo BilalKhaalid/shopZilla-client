@@ -65,7 +65,7 @@ type SearchProductsRequest = {
   sort: string;
 };
 type NewProductRequest = {
-  formData: FormData;
+  FormData: FormData;
   id: string;
 };
 

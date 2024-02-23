@@ -11,14 +11,14 @@ const NewProduct = () => {
     (state: { userReducer: UserReducerInitialState }) => state.userReducer
   );
 
-  const [name, setName] = useState<string>("");
+  const [title, setTitle] = useState<string>("");
   const [category, setCategory] = useState<string>("");
   const [price, setPrice] = useState<number>(1000);
   const [stock, setStock] = useState<number>(1);
   const [photoPrev, setPhotoPrev] = useState<string>("");
-  const [photo, setPhoto] = useState<File>();
+  const [picture, setPicture] = useState<File>();
 
-  const [newProduct] = useNewProductMutation();
+  const [newProductMutation] = useNewProductMutation();
   const navigate = useNavigate();
 
   const changeImageHandler = (e: ChangeEvent<HTMLInputElement>) => {
@@ -31,7 +31,7 @@ const NewProduct = () => {
       reader.onloadend = () => {
         if (typeof reader.result === "string") {
           setPhotoPrev(reader.result);
-          setPhoto(file);
+          setPicture(file);
         }
       };
     }
@@ -40,19 +40,27 @@ const NewProduct = () => {
   const submitHandler = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (!name || !price || stock < 0 || !category || !photo) return;
+    if (!title || !price || stock < 0 || !category || !picture) return;
 
     const formData = new FormData();
+    formData.append("title", title);
+    formData.append("price", price.toString());
+    formData.append("stock", stock.toString());
+    formData.append("category", category);
+    formData.append("picture", picture, picture.name);
 
-    formData.set("name", name);
-    formData.set("price", price.toString());
-    formData.set("stock", stock.toString());
-    formData.set("photo", photo);
-    formData.set("category", category);
+    try {
+      const res = await newProductMutation({
+        FormData: formData,
+        id: user?._id || "",
+      });
 
-    const res = await newProduct({ id: user?._id || "", formData });
-
-    responseToast(res, navigate, "/admin/product");
+      // Handle response as needed
+      responseToast(res, navigate, "/admin/product");
+    } catch (error) {
+      // Handle error
+      console.error("Error occurred:", error);
+    }
   };
 
   return (
@@ -68,8 +76,8 @@ const NewProduct = () => {
                 required
                 type="text"
                 placeholder="Name"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
               />
             </div>
             <div>

@@ -46,10 +46,10 @@ const productApi = createApi({
       providesTags: ["product"],
     }),
     newProduct: builder.mutation<MessageResponse, NewProductRequest>({
-      query: ({ formData, id }) => ({
+      query: ({ FormData, id }) => ({
         url: `new?id=${id}`,
         method: "POST",
-        body: formData,
+        body: FormData,
       }),
       invalidatesTags: ["product"],
     }),
