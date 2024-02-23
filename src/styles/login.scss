@@ -1,15 +1,17 @@
 .login {
-  height: 90vh;
+  height: 85vh;
   @include flex(column);
 
   > main {
-    width: 80%;
-    height: 80%;
-    max-width: 25vw; /* Use vw instead of px */
+    width: 90%;
+    height: 75%;
+    max-width: 31vw; /* Use vw instead of px */
     padding: 2rem;
     @include baseShadow;
     border-radius: 12px;
     @include flex(column, center, stretch);
+    position: absolute;
+    top: 6.8rem;
 
     > div {
       width: 100%;
@@ -25,13 +27,13 @@
         margin: 2rem;
       }
       > button {
-        width: 70%;
+        width: 60%;
         margin: auto;
         height: 3rem;
         @include button(unset, 5px, rgb(62, 125, 142), whitesmoke);
         @include flex;
         border: 1px solid rgb(62, 125, 142);
-        font-size: 1.02rem;
+        font-size: 0.9rem;
       }
       svg {
         background-color: white;
