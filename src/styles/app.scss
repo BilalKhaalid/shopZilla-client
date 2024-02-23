@@ -348,8 +348,11 @@ body {
 }
 
 .logo-container {
-  width: 50vw;
+  width: 270px;
+  height: 11.1rem;
+
   > img {
     width: 100%;
+    margin-left: -20px;
   }
 }
