@@ -346,3 +346,10 @@ body {
     color: rgb(255, 43, 43);
   }
 }
+
+.logo-container {
+  width: 50vw;
+  > img {
+    width: 100%;
+  }
+}
