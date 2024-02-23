@@ -7,11 +7,13 @@ import { auth } from "../firebase";
 import { useLoginMutation } from "../redux/api/UserApi";
 import { FetchBaseQueryError } from "@reduxjs/toolkit/query";
 import { MessageResponse } from "../types/Api";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [gender, setGender] = useState("");
   const [date, setDate] = useState("");
   const [login] = useLoginMutation();
+  const navigate = useNavigate();
 
   const loginHandler = async () => {
     try {
@@ -28,6 +30,7 @@ const Login = () => {
       });
       if ("data" in res) {
         toast.success(res.data.message);
+        navigate("/");
       } else {
         const error = res.error as FetchBaseQueryError;
         const message = error.data as MessageResponse;
